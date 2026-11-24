@@ -6,7 +6,9 @@ public class Serveur {
 
     public static void main(String[] args) {
 
-        String url = "http://localhost:8080/bib/EmpruntService";
+        String url = args.length == 0
+            ? "http://localhost:8080/bib/EmpruntService"
+            : args[0];
 
         Endpoint.publish(url, new EmpruntService());
 

@@ -60,6 +60,9 @@ public class EmpruntService {
     public BigDecimal rendreLivre(
         @WebParam(name = "numeroEmprunt") String numeroEmprunt
     ) {
+        if (numeroEmprunt == null || !numeroEmprunt.startsWith("E-2026-"))
+            throw faultClient("Numéro d'emprunt inconnu : " + numeroEmprunt);
+
         return BigDecimal.ZERO;
     }
 
